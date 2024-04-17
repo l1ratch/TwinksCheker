@@ -1,4 +1,18 @@
 name: TwinksCheker
 version: '${project.version}'
 main: l1ratch.twinkscheker.TwinksCheker
-api-version: '1.19'
+commands:
+  checktwinks:
+    description: Check linked nicknames and IP addresses.
+    usage: /checktwinks <nickname>|<ip>
+    permission: twinks.check
+  checktwinkstoggle:
+    description: Toggle twinks check.
+    permission: twinks.toggle
+permissions:
+  twinks.check:
+    description: Allows access to check linked nicknames and IP addresses.
+    default: op
+  twinks.toggle:
+    description: Allows access to toggle twinks check.
+    default: op

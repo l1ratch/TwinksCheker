@@ -1,0 +1,9 @@
+mysql:
+  host: "localhost"
+  port: "3306"
+  database: "minecraft"
+  username: "root"
+  password: "password"
+
+check_twinks_enabled: true
+notify_player_on_join: false
