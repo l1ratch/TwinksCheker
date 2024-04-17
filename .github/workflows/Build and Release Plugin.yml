@@ -25,9 +25,7 @@ jobs:
       - name: Get plugin version
         id: get_version
         run: |
-          version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
-          echo "Plugin version: $version"
-          echo "version=$version" >> $GITHUB_ENV
+          echo "version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
 
       - name: Create Release
         id: create_release
