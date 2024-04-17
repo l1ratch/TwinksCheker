@@ -1,0 +1,4 @@
+name: TwinksCheker
+version: '${project.version}'
+main: l1ratch.twinkscheker.TwinksCheker
+api-version: '1.19'
