@@ -25,14 +25,15 @@ jobs:
       - name: Get plugin version
         id: get_version
         run: |
-          echo "version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+          echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+          echo "Plugin version: $VERSION"
 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: v${{ steps.get_version.outputs.version }}-${{ github.run_number }}
-          release_name: Release v${{ steps.get_version.outputs.version }}
+          tag_name: v${{ env.VERSION }}
+          release_name: Release v${{ env.VERSION }}
           body: |
             Описание вашего релиза
           draft: false
