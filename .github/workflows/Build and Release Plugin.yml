@@ -36,7 +36,7 @@ jobs:
         uses: actions/create-release@v1
         with:
           tag_name: v${{ env.VERSION }}-${{ github.run_number }}
-          release_name: Release v${{ env.VERSION }}
+          release_name: Release v${{ env.VERSION }}-${{ github.run_number }}
           body: |
             Описание вашего релиза
           draft: false
@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: target/TwinksCheker-${{ env.VERSION }}-${{ github.run_number }}.jar
-          asset_name: TwinksCheker-${{ env.VERSION }}-${{ github.run_number }}.jar
+          asset_path: target/TwinksCheker-${{ env.VERSION }}.jar
+          asset_name: TwinksCheker-${{ env.VERSION }}.jar
           asset_content_type: application/java-archive
 
