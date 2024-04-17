@@ -1,3 +1,6 @@
+# TwinksChecker by l1ratch! Плагин проверяющий твинки игроков.
+
+# Настройка базы данных. ОБЯЗАТЕЛЬНО!
 mysql:
   host: "localhost"
   port: "3306"
@@ -5,5 +8,8 @@ mysql:
   username: "root"
   password: "password"
 
+# Оповещение администратора о входе игрока
 check_twinks_enabled: true
+
+# Оповещение игрока о количестве твинков
 notify_player_on_join: false
