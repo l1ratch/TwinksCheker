@@ -30,14 +30,15 @@ jobs:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         with:
           tag_name: v${{ steps.get_version.outputs.version }}
           release_name: Release v${{ steps.get_version.outputs.version }}
-          body: Обновление плагина
+          body: |
+            Описание вашего релиза
           draft: false
           prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
