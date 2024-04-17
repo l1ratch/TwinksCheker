@@ -44,11 +44,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
+      - name: Upload JAR files to Release
+        uses: actions/upload-release-asset@v1
         with:
-          name: plugin-jar
-          path: target/*.jar
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: target/TwinksCheker-${{ env.VERSION }}-${{ github.run_number }}.jar
+          asset_name: TwinksCheker-${{ env.VERSION }}-${{ github.run_number }}.jar
+          asset_content_type: application/java-archive
 
