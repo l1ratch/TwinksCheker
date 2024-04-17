@@ -25,7 +25,7 @@ jobs:
       - name: Get plugin version
         id: get_version
         run: |
-          echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
+          echo "version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
 
       - name: Create Release
         id: create_release
@@ -35,8 +35,7 @@ jobs:
         with:
           tag_name: v${{ steps.get_version.outputs.version }}
           release_name: Release v${{ steps.get_version.outputs.version }}
-          body: |
-            Описание вашего релиза
+          body: Обновление плагина
           draft: false
           prerelease: false
 
