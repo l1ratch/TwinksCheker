@@ -13,10 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up JDK 11
+      - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
+          java-version: '17'
+          distribution: 'openjdk'
 
       - name: Build plugin
         run: mvn clean package
@@ -35,7 +36,7 @@ jobs:
           tag_name: v${{ steps.get_version.outputs.version }}
           release_name: Release v${{ steps.get_version.outputs.version }}
           body: |
-            Новая версия плагина
+            Описание вашего релиза
           draft: false
           prerelease: false
 
