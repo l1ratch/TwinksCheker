@@ -49,3 +49,6 @@ jobs:
         with:
           name: plugin-jar
           path: target/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+
