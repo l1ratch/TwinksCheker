@@ -35,7 +35,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: v${{ env.VERSION }}
+          tag_name: v${{ env.VERSION }}-${{ github.run_number }}
           release_name: Release v${{ env.VERSION }}
           body: |
             Описание вашего релиза
