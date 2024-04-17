@@ -28,6 +28,9 @@ jobs:
           echo "VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
           echo "Plugin version: $VERSION"
 
+      - name: List JAR files
+        run: ls -l target/*.jar
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
