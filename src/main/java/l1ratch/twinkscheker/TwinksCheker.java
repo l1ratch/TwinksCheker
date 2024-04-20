@@ -46,10 +46,12 @@ public class TwinksCheker extends JavaPlugin implements Listener, CommandExecuto
         try {
             connection = DriverManager.getConnection(url, username, password);
             getLogger().info("Connected to database!");
+            createTable(); // Создание таблицы после успешного соединения
         } catch (SQLException e) {
             getLogger().warning("Failed to connect to database: " + e.getMessage());
         }
     }
+
 
     private void createTable() {
         try {
